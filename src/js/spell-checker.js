@@ -73,8 +73,8 @@ function CodeMirrorSpellChecker(options) {
 		// Define what separates a word
 		var rx_word = /^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/;
 
-		// Ignore words that are just numbers
-		var rx_ignore = /^[0-9]+$/;
+		// Ignore words that are just numbers, and 27D (dimensions)
+		var rx_ignore = /^[0-9]+D?$/;
 
 
 		// Get array of custom words
