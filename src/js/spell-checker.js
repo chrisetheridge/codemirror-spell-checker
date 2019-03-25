@@ -34,7 +34,7 @@ function CodeMirrorSpellChecker(options) {
 		if(!CodeMirrorSpellChecker.aff_loading) {
 			CodeMirrorSpellChecker.aff_loading = true;
 			var xhr_aff = new XMLHttpRequest();
-			xhr_aff.open("GET", "https://cdn.jsdelivr.net/codemirror.spell-checker/latest/en_US.aff", true);
+			xhr_aff.open("GET", "https://cdn.jsdelivr.net/npm/hunspell-dict-en-us@0.1.0/en-us.aff", true);
 			xhr_aff.onload = function() {
 				if(xhr_aff.readyState === 4 && xhr_aff.status === 200) {
 					CodeMirrorSpellChecker.aff_data = xhr_aff.responseText;
@@ -53,7 +53,7 @@ function CodeMirrorSpellChecker(options) {
 		if(!CodeMirrorSpellChecker.dic_loading) {
 			CodeMirrorSpellChecker.dic_loading = true;
 			var xhr_dic = new XMLHttpRequest();
-			xhr_dic.open("GET", "https://cdn.jsdelivr.net/codemirror.spell-checker/latest/en_US.dic", true);
+			xhr_dic.open("GET", "https://cdn.jsdelivr.net/npm/hunspell-dict-en-us@0.1.0/en-us.dic", true);
 			xhr_dic.onload = function() {
 				if(xhr_dic.readyState === 4 && xhr_dic.status === 200) {
 					CodeMirrorSpellChecker.dic_data = xhr_dic.responseText;
