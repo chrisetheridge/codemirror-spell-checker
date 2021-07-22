@@ -74,14 +74,20 @@ function CodeMirrorSpellChecker(options) {
 		var rx_word = /^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/;
 
 		// Ignore words that are just numbers, and 27D (dimensions)
-		var rx_ignore = /^[0-9]+D?$/;
+		var rx_ignore = /[0-9'_-]+/;
 
 
 		// Get array of custom words
 		var customWords = [];
 
-		if(options.customWords && options.customWords instanceof Array) {
-			customWords = options.customWords;
+		if(options.customWords) {
+			
+			if (options.customWords instanceof Function) {
+				console.log("Function");
+				customWords = options.customWords();
+			} else {
+				customWords = options.customWords;
+			}
 		}
 
 		// Create the overlay and such
