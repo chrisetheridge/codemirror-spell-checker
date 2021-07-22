@@ -1,7 +1,7 @@
 {
   "name": "@biscuitpants/codemirror-spell-checker",
   "version": "0.0.3",
-  "description": "Tweaked spell checker for CodeMirror",
+  "description": "Tweaked and updated spell checker for CodeMirror",
   "keywords": [
     "codemirror",
     "code",

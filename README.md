@@ -17,19 +17,19 @@ Added fixes:
 
 Via [npm](https://www.npmjs.com/package/codemirror-spell-checker).
 ```
-npm install @edemaine/codemirror-spell-checker --save
+npm install @biscuitpants/codemirror-spell-checker --save
 ```
 
 Via [bower](https://www.bower.io).
 ```
-bower install @edemaine/codemirror-spell-checker --save
+bower install @biscuitpants/codemirror-spell-checker --save
 ```
 
-Via [jsDelivr](https://www.jsdelivr.com/package/npm/@edemaine/codemirror-spell-checker). *Please note, jsDelivr may take a few days to update to the latest release.*
+Via [jsDelivr](https://www.jsdelivr.com/package/npm/@biscuitpants/codemirror-spell-checker). *Please note, jsDelivr may take a few days to update to the latest release.*
 
 ```HTML
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@edemaine/codemirror-spell-checker/latest/spell-checker.min.css">
-<script src="https://cdn.jsdelivr.net/npm/@edemaine/codemirror-spell-checker/latest/spell-checker.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@biscuitpants/codemirror-spell-checker/latest/spell-checker.min.css">
+<script src="https://cdn.jsdelivr.net/npm/@biscuitpants/codemirror-spell-checker/latest/spell-checker.min.js"></script>
 ```
 
 ## Quick start
@@ -68,3 +68,13 @@ CodeMirrorSpellChecker({
 	customWords: ["CodeMirror", "GitHub"],
 });
 ```
+
+`customWords` can be both an Array of strings or a function that returns an Array of strings. 
+
+```JavaScript
+CodeMirrorSpellChecker({
+	codeMirrorInstance: CodeMirror,
+	customWords: function() { return ["NPM", "Javascript"]; },
+});
+```
+
