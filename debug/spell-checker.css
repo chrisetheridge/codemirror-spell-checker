@@ -1,7 +1,7 @@
 /**
- * @chrisetheridge/codemirror-spell-checker v0.0.1
+ * @biscuitpants/codemirror-spell-checker v0.0.2
  * Copyright 
- * @link https://github.com/chrisetheridge/codemirror-spell-checker
+ * @link https://github.com/biscuitpants/codemirror-spell-checker
  * @license MIT
  */
 .CodeMirror .cm-spell-error:not(.cm-url):not(.cm-comment):not(.cm-tag):not(.cm-word) {
