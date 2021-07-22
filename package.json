@@ -1,5 +1,5 @@
 {
-  "name": "@edemaine/codemirror-spell-checker",
+  "name": "@chrisetheridge/codemirror-spell-checker",
   "version": "0.0.1",
   "description": "Tweaked spell checker for CodeMirror",
   "keywords": [
@@ -13,12 +13,12 @@
     "spellchecking",
     "javascript"
   ],
-  "homepage": "https://github.com/edemaine/codemirror-spell-checker",
+  "homepage": "https://github.com/chrisetheridge/codemirror-spell-checker",
   "main": "./src/js/spell-checker.js",
   "license": "MIT",
-  "author": "Wes Cossick and Erik Demaine",
+  "author": "Wes Cossick and Erik Demaine and Chris Etheridge",
   "bugs": {
-    "url": "https://github.com/edemaine/codemirror-spell-checker/issues"
+    "url": "https://github.com/chrisetheridge/codemirror-spell-checker/issues"
   },
   "dependencies": {
     "typo-js": "*"
@@ -41,6 +41,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/edemaine/codemirror-spell-checker"
+    "url": "https://github.com/chrisetheridge/codemirror-spell-checker"
   }
 }
