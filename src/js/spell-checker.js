@@ -81,8 +81,8 @@ function CodeMirrorSpellChecker(options) {
 		var customWords = [];
 
 		if(options.customWords) {
-			
-			if (options.customWords instanceof Function) {
+
+			if(options.customWords instanceof Function) {
 				console.log("Function");
 				customWords = options.customWords();
 			} else {
