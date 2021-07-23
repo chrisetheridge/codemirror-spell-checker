@@ -91,7 +91,7 @@ function CodeMirrorSpellChecker(options) {
     var regexIgnore = /[0-9'_-]+/;
 
     if (options.ignoreRegex && options.ignoreRegex instanceof RegExp) {
-      rxIgnore = options.ignoreRegex;
+      regexIgnore = options.ignoreRegex;
     }
 
     var customWords = [];
@@ -104,10 +104,13 @@ function CodeMirrorSpellChecker(options) {
       }
     }
 
+    console.log(regexIgnore, options);
+
     // Codemirror mode overlay
     var overlay = {
       token: function (stream) {
         var word = stream.match(wordRegex, true);
+
         if (word) {
           word = word[0]; // regex match body
           if (
