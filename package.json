@@ -23,20 +23,14 @@
   "dependencies": {
     "typo-js": "*"
   },
-  "scripts": {
-    "preinstall": "npm install --package-lock-only --ignore-scripts && npx npm-force-resolutions"
-  },
-  "resolutions": {
-    "graceful-fs": "^4.2.4"
-  },
   "devDependencies": {
     "browserify": "*",
     "debug": "*",
     "eslint": "*",
-    "gulp": "3.9.1",
+    "gulp": "^4.0.2",
     "gulp-clean-css": "*",
     "gulp-concat": "*",
-    "gulp-debug": "3.2.0",
+    "gulp-debug": "*",
     "gulp-eslint": "*",
     "gulp-header": "*",
     "gulp-jsbeautifier": "*",
