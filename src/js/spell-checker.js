@@ -1,23 +1,14 @@
-// Use strict mode (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode)
 "use strict";
 
-
-// Requires
 var Typo = require("typo-js");
 
-
-// Create function
 function CodeMirrorSpellChecker(options) {
-	// Initialize
 	options = options || {};
 
-
-	// Verify
 	if(typeof options.codeMirrorInstance !== "function" || typeof options.codeMirrorInstance.defineMode !== "function") {
 		console.log("CodeMirror Spell Checker: You must provide an instance of CodeMirror via the option `codeMirrorInstance`");
 		return;
 	}
-
 
 	// Because some browsers don't support this functionality yet
 	if(!String.prototype.includes) {
@@ -26,7 +17,6 @@ function CodeMirrorSpellChecker(options) {
 			return String.prototype.indexOf.apply(this, arguments) !== -1;
 		};
 	}
-
 
 	// Define the new mode
 	options.codeMirrorInstance.defineMode("spell-checker", function(config) {
@@ -69,34 +59,35 @@ function CodeMirrorSpellChecker(options) {
 			xhr_dic.send(null);
 		}
 
+		var wordRegex = /^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/;
 
-		// Define what separates a word
-		var rx_word = /^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/;
+		if(options.matchRegex && options.matchRegex instanceof RegExp) {
+			wordRegex = options.matchRegex;
+		}
 
-		// Ignore words that are just numbers, and 27D (dimensions)
-		var rx_ignore = /[0-9'_-]+/;
+		var regexIgnore = /[0-9'_-]+/;
 
+		if(options.ignoreRegex && options.ignoreRegex instanceof RegExp) {
+			rxIgnore = options.ignoreRegex;
+		} 
 
-		// Get array of custom words
 		var customWords = [];
 
 		if(options.customWords) {
-
 			if(options.customWords instanceof Function) {
-				console.log("Function");
 				customWords = options.customWords();
 			} else {
 				customWords = options.customWords;
 			}
 		}
 
-		// Create the overlay and such
+		// Codemirror mode overlay
 		var overlay = {
 			token: function(stream) {
-				var word = stream.match(rx_word, true);
+				var word = stream.match(wordRegex, true);
 				if(word) {
 					word = word[0]; // regex match body
-					if(!word.match(rx_ignore) && CodeMirrorSpellChecker.typo && !CodeMirrorSpellChecker.typo.check(word) && !~customWords.indexOf(word))
+					if(!word.match(regexIgnore) && CodeMirrorSpellChecker.typo && !CodeMirrorSpellChecker.typo.check(word) && !~customWords.indexOf(word))
 						return "spell-error"; // CSS class: cm-spell-error
 				} else {
 					stream.next(); // skip non-word character
@@ -114,8 +105,6 @@ function CodeMirrorSpellChecker(options) {
 	});
 }
 
-
-// Initialize data globally to reduce memory consumption
 CodeMirrorSpellChecker.num_loaded = 0;
 CodeMirrorSpellChecker.aff_loading = false;
 CodeMirrorSpellChecker.dic_loading = false;
@@ -123,6 +112,4 @@ CodeMirrorSpellChecker.aff_data = "";
 CodeMirrorSpellChecker.dic_data = "";
 CodeMirrorSpellChecker.typo;
 
-
-// Export
 module.exports = CodeMirrorSpellChecker;
