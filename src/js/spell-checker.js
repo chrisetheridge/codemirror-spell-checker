@@ -76,7 +76,6 @@ function CodeMirrorSpellChecker(options) {
 						);
 
 						if(options.onDictionaryLoad != undefined) {
-							console.log("On load!");
 							options.onDictionaryLoad();
 						}
 					}

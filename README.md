@@ -59,7 +59,10 @@ You can customize the misspelled word appearance by updating the CSS. All misspe
 
 ## Configuration
 
-- **customWords**: Custom array of words that will not be designated as misspelled. Defaults to an empty array.
+- **customWords**: Custom array of words (or function that returns an array) that will not be treated as misspelled. Defaults to an empty array.
+- **ignoreRegex**: Custom regex to check if a matched word should be ignored. Defaults to `/[0-9'_-]+/`
+- **wordRegex**: Custom regex to match on words to be checked against the dictionary. Defaults to `/^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/`
+- **onDictionaryLoad**: Function to run once the dictionaries have been loaded into memory. 
 
 ```JavaScript
 // Most options demonstrate the non-default behavior

@@ -1,5 +1,5 @@
 /**
- * @biscuitpants/codemirror-spell-checker v0.0.7
+ * @biscuitpants/codemirror-spell-checker v0.0.8
  * Copyright 
  * @link https://github.com/biscuitpants/codemirror-spell-checker
  * @license MIT
@@ -1096,7 +1096,6 @@ function CodeMirrorSpellChecker(options) {
 						);
 
 						if(options.onDictionaryLoad != undefined) {
-							console.log("On load!");
 							options.onDictionaryLoad();
 						}
 					}
