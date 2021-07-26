@@ -1,5 +1,5 @@
 /**
- * @biscuitpants/codemirror-spell-checker v0.0.6
+ * @biscuitpants/codemirror-spell-checker v0.0.7
  * Copyright 
  * @link https://github.com/biscuitpants/codemirror-spell-checker
  * @license MIT
@@ -1094,6 +1094,11 @@ function CodeMirrorSpellChecker(options) {
 								platform: "any",
 							}
 						);
+
+						if(options.onDictionaryLoad != undefined) {
+							console.log("On load!");
+							options.onDictionaryLoad();
+						}
 					}
 				}
 			};
@@ -1121,8 +1126,6 @@ function CodeMirrorSpellChecker(options) {
 				customWords = options.customWords;
 			}
 		}
-
-		console.log(regexIgnore, options);
 
 		// Codemirror mode overlay
 		var overlay = {

@@ -74,6 +74,11 @@ function CodeMirrorSpellChecker(options) {
 								platform: "any",
 							}
 						);
+
+						if(options.onDictionaryLoad != undefined) {
+							console.log("On load!");
+							options.onDictionaryLoad();
+						}
 					}
 				}
 			};
@@ -101,8 +106,6 @@ function CodeMirrorSpellChecker(options) {
 				customWords = options.customWords;
 			}
 		}
-
-		console.log(regexIgnore, options);
 
 		// Codemirror mode overlay
 		var overlay = {
