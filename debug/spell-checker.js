@@ -1,5 +1,5 @@
 /**
- * @biscuitpants/codemirror-spell-checker v0.0.8
+ * @biscuitpants/codemirror-spell-checker v0.0.10
  * Copyright 
  * @link https://github.com/biscuitpants/codemirror-spell-checker
  * @license MIT
@@ -1025,6 +1025,12 @@ var Typo = require("typo-js");
 function CodeMirrorSpellChecker(options) {
 	options = options || {};
 
+	var dictLang = "en_US";
+
+	if(options.dictionaryLanguage) {
+		dictLang = options.dictionaryLanguage;
+	}
+
 	if(
 		typeof options.codeMirrorInstance !== "function" ||
 		typeof options.codeMirrorInstance.defineMode !== "function"
@@ -1051,7 +1057,11 @@ function CodeMirrorSpellChecker(options) {
 			var xhr_aff = new XMLHttpRequest();
 			xhr_aff.open(
 				"GET",
-				"https://cdn.jsdelivr.net/npm/hunspell-dict-en-us@0.1.0/en-us.aff",
+				"https://spellcheck-dictionaries.github.io/" +
+				dictLang +
+				"/" +
+				dictLang +
+				".aff",
 				true
 			);
 			xhr_aff.onload = function() {
@@ -1061,7 +1071,7 @@ function CodeMirrorSpellChecker(options) {
 
 					if(CodeMirrorSpellChecker.num_loaded == 2) {
 						CodeMirrorSpellChecker.typo = new Typo(
-							"en_US",
+							dictLang,
 							CodeMirrorSpellChecker.aff_data,
 							CodeMirrorSpellChecker.dic_data, {
 								platform: "any",
@@ -1078,7 +1088,11 @@ function CodeMirrorSpellChecker(options) {
 			var xhr_dic = new XMLHttpRequest();
 			xhr_dic.open(
 				"GET",
-				"https://cdn.jsdelivr.net/npm/hunspell-dict-en-us@0.1.0/en-us.dic",
+				"https://spellcheck-dictionaries.github.io/" +
+				dictLang +
+				"/" +
+				dictLang +
+				".dic",
 				true
 			);
 			xhr_dic.onload = function() {
@@ -1088,7 +1102,7 @@ function CodeMirrorSpellChecker(options) {
 
 					if(CodeMirrorSpellChecker.num_loaded == 2) {
 						CodeMirrorSpellChecker.typo = new Typo(
-							"en_US",
+							dictLang,
 							CodeMirrorSpellChecker.aff_data,
 							CodeMirrorSpellChecker.dic_data, {
 								platform: "any",
