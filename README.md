@@ -63,6 +63,7 @@ You can customize the misspelled word appearance by updating the CSS. All misspe
 - **ignoreRegex**: Custom regex to check if a matched word should be ignored. Defaults to `/[0-9'_-]+/`
 - **wordRegex**: Custom regex to match on words to be checked against the dictionary. Defaults to `/^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/`
 - **onDictionaryLoad**: Function to run once the dictionaries have been loaded into memory. 
+- **dictionaryLanguage**: String name of dictionary to use. Supported dictionaries acn be found [here](https://spellcheck-dictionaries.github.io/).
 
 ```JavaScript
 // Most options demonstrate the non-default behavior
