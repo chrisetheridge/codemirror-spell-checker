@@ -64,6 +64,7 @@ You can customize the misspelled word appearance by updating the CSS. All misspe
 - **wordRegex**: Custom regex to match on words to be checked against the dictionary. Defaults to `/^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/`
 - **onDictionaryLoad**: Function to run once the dictionaries have been loaded into memory. 
 - **dictionaryLanguage**: String name of dictionary to use. Supported dictionaries acn be found [here](https://spellcheck-dictionaries.github.io/).
+- **commentStart**: String that denotes the start of a comment line. Spelling will be ignored for comments.
 
 ```JavaScript
 // Most options demonstrate the non-default behavior
