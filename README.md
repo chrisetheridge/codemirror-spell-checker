@@ -57,13 +57,17 @@ You can customize the misspelled word appearance by updating the CSS. All misspe
 }
 ```
 
+## Dictionaries
+
+Dictionaries are loaded from [here](https://spellcheck-dictionaries.github.io/). 
+
 ## Configuration
 
 - **customWords**: Custom array of words (or function that returns an array) that will not be treated as misspelled. Defaults to an empty array.
 - **ignoreRegex**: Custom regex to check if a matched word should be ignored. Defaults to `/[0-9'_-]+/`
 - **wordRegex**: Custom regex to match on words to be checked against the dictionary. Defaults to `/^[^!"#$%&()*+,\-./:;<=>?@[\\\]^_`{|}~\s]+/`
 - **onDictionaryLoad**: Function to run once the dictionaries have been loaded into memory. 
-- **dictionaryLanguage**: String name of dictionary to use. Supported dictionaries acn be found [here](https://spellcheck-dictionaries.github.io/).
+- **dictionaryLanguage**: String name of dictionary to use. Supported dictionaries can be found [here](https://spellcheck-dictionaries.github.io/).
 - **commentStart**: String that denotes the start of a comment line. Spelling will be ignored for comments.
 
 ```JavaScript
